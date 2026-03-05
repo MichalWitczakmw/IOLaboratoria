@@ -1,5 +1,6 @@
 package vod.repository.mem;
 
+import org.springframework.stereotype.Component;
 import vod.repository.MovieDao;
 import vod.model.Cinema;
 import vod.model.Director;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Component
 public class MemMovieDao implements MovieDao {
     @Override
     public List<Movie> findAll() {
@@ -22,7 +24,7 @@ public class MemMovieDao implements MovieDao {
 
     @Override
     public List<Movie> findByDirector(Director d) {
-       return SampleData.movies.stream().filter(m -> m.getDirector() == d).collect(Collectors.toList());
+        return SampleData.movies.stream().filter(m -> m.getDirector() == d).collect(Collectors.toList());
     }
 
     @Override
