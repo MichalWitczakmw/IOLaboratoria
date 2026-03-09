@@ -1,26 +1,26 @@
 ### get all mangaShops
-GET http://localhost:8080/webapi/mangaShops
+GET http://localhost:8080/webapi/manga-shops
 
 ### get all mangaShops with params
-GET http://localhost:8080/webapi/mangaShops?phrase=abc
+GET http://localhost:8080/webapi/manga-shops?phrase=abc
 custom-header: custom-value
 Cookie: some-cookie=some-value
 
 ### get mangaShop by id
-GET http://localhost:8080/webapi/mangaShops/1
+GET http://localhost:8080/webapi/manga-shops/1
 Accept: application/xml
 
-### get mangaShops playing manga
-GET http://localhost:8080/webapi/mangas/1/mangaShops
+### get mangaShops selling manga
+GET http://localhost:8080/webapi/mangas/1/manga-shops
 Accept: application/json
 
 ### create new mangaShop
-POST http://localhost:8080/webapi/mangaShops
+POST http://localhost:8080/webapi/manga-shops
 Content-Type: application/json
 
 {
-  "name": "Kinoteka Bis",
-  "logo": "https://www.kinoteka.pl/img/logo.png"
+  "name": "Manga World",
+  "logo": "https://example.com/manga-world-logo.png"
 }
 
 ### get all mangas
@@ -29,16 +29,16 @@ GET http://localhost:8080/webapi/mangas
 ### get manga by id
 GET http://localhost:8080/webapi/mangas/1
 
-### get mangas played in mangaShop
-GET http://localhost:8080/webapi/mangaShops/1/mangas
+### get mangas available in mangaShop
+GET http://localhost:8080/webapi/manga-shops/1/mangas
 
 ### create new manga
 POST http://localhost:8080/webapi/mangas
 Content-Type: application/json
 
 {
-  "title": "IO",
-  "poster": "https://www.kinoteka.pl/img/logo.png",
+  "title": "One Piece",
+  "poster": "https://example.com/one-piece.jpg",
   "rating": 4.5,
-  "directorId": 4
+  "employeeId": 1
 }
