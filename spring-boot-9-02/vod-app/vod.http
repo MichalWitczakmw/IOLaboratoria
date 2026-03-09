@@ -1,0 +1,44 @@
+### get all mangaShops
+GET http://localhost:8080/webapi/mangaShops
+
+### get all mangaShops with params
+GET http://localhost:8080/webapi/mangaShops?phrase=abc
+custom-header: custom-value
+Cookie: some-cookie=some-value
+
+### get mangaShop by id
+GET http://localhost:8080/webapi/mangaShops/1
+Accept: application/xml
+
+### get mangaShops playing manga
+GET http://localhost:8080/webapi/mangas/1/mangaShops
+Accept: application/json
+
+### create new mangaShop
+POST http://localhost:8080/webapi/mangaShops
+Content-Type: application/json
+
+{
+  "name": "Kinoteka Bis",
+  "logo": "https://www.kinoteka.pl/img/logo.png"
+}
+
+### get all mangas
+GET http://localhost:8080/webapi/mangas
+
+### get manga by id
+GET http://localhost:8080/webapi/mangas/1
+
+### get mangas played in mangaShop
+GET http://localhost:8080/webapi/mangaShops/1/mangas
+
+### create new manga
+POST http://localhost:8080/webapi/mangas
+Content-Type: application/json
+
+{
+  "title": "IO",
+  "poster": "https://www.kinoteka.pl/img/logo.png",
+  "rating": 4.5,
+  "directorId": 4
+}

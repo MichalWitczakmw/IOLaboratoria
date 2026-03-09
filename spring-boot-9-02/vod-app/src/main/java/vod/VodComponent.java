@@ -8,8 +8,8 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-import vod.model.Cinema;
-import vod.service.CinemaService;
+import vod.model.MangaShop;
+import vod.service.MangaShopService;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,13 +19,13 @@ import java.util.List;
 @Slf4j
 public class VodComponent implements CommandLineRunner, ApplicationListener<ContextRefreshedEvent> {
 
-    private final CinemaService cinemaService;
+    private final MangaShopService mangaShopService;
 
     @PostConstruct
     void init() {
-        List<Cinema> cinemas = cinemaService.getAllCinemas();
-        log.info("{} cinemas found.", cinemas.size());
-        cinemas.forEach(cinema -> log.info("{}", cinema));
+        List<MangaShop> mangaShops = mangaShopService.getAllMangaShops();
+        log.info("{} mangaShops found.", mangaShops.size());
+        mangaShops.forEach(mangaShop -> log.info("{}", mangaShop));
     }
 
     @Override
@@ -36,11 +36,13 @@ public class VodComponent implements CommandLineRunner, ApplicationListener<Cont
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         log.info("on context refreshed");
-        List<Cinema> cinemas =  cinemaService.getAllCinemas();
-        log.info("{} cinemas found.", cinemas.size());
-        cinemas.forEach(cinema->log.info("{}", cinema));
+        List<MangaShop> mangaShops = mangaShopService.getAllMangaShops();
+        log.info("{} mangaShops found.", mangaShops.size());
+        mangaShops.forEach(mangaShop -> log.info("{}", mangaShop));
     }
 
     @EventListener
-    public void eventListener(ContextRefreshedEvent event) {log.info("on context refreshed (from annotated method)");}
+    public void eventListener(ContextRefreshedEvent event) {
+        log.info("on context refreshed (from annotated method)");
+    }
 }
